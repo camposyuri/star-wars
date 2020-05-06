@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Character from "./pages/Character";
+import NewCharacter from "./pages/NewCharacter";
 
 const App = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios.get("https://swapi.dev/api/people/").then(res => {
-      setData(res.data.results);
-    });
-  }, []);
-
   return (
     <>
-      <Header />
-      <Home />
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/character" component={Character} />
+          <Route path="/new-character" component={NewCharacter} />
+        </Switch>
+      </Router>
     </>
   );
 };

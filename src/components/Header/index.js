@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -20,12 +21,16 @@ const Header = () => {
     <>
       <Navbar color="dark" dark expand="md">
         <div className="container">
-          <NavbarBrand href="/">Star Wars</NavbarBrand>
+          <NavbarBrand tag={Link} to="/">
+            Star Wars
+          </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={open} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#">Personagens</NavLink>
+                <NavLink tag={Link} to="/character">
+                  Character
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
