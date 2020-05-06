@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Table } from "reactstrap";
 import api from "../../services";
 
 const TableDark = () => {
@@ -22,7 +21,6 @@ const TableDark = () => {
             <th>Mass</th>
             <th>Eye color</th>
             <th>Birth Year</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -34,12 +32,6 @@ const TableDark = () => {
                 <td>{person.mass}</td>
                 <td>{person.eye_color}</td>
                 <td>{person.birth_year}</td>
-                <td>
-                  <Link className="btn btn-primary mr-2" to="/new-character">
-                    New
-                  </Link>
-                  <Button color="danger">Delete</Button>
-                </td>
               </tr>
             );
           })}
