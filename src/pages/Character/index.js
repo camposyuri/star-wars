@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TableDark from "../../components/TableDark";
 import TableHeader from "../../components/TableDark/TableHeader/";
 import TableBody from "../../components/TableDark/TableBody/";
+import { Container } from "reactstrap";
 import api from "../../services";
 
 const Character = () => {
@@ -20,15 +21,17 @@ const Character = () => {
   }, [searchTerm]);
 
   return (
-    <div className="container">
-      <h1>Character</h1>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={handleChange}
-        placeholder="Search by name"
-        className="my-2"
-      />
+    <>
+      <Container fluid>
+        <h1>Character</h1>
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleChange}
+          placeholder="Search by name"
+          className="my-2"
+        />
+      </Container>
       <TableDark>
         <TableHeader
           name="Name"
@@ -50,7 +53,7 @@ const Character = () => {
           );
         })}
       </TableDark>
-    </div>
+    </>
   );
 };
 

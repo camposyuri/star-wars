@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  Container,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -20,7 +21,7 @@ const Header = () => {
   return (
     <>
       <Navbar color="dark" dark expand="md">
-        <div className="container">
+        <Container fluid>
           <NavbarBrand tag={Link} to="/">
             Star Wars
           </NavbarBrand>
@@ -32,9 +33,14 @@ const Header = () => {
                   Character
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/planets">
+                  Planets
+                </NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
-        </div>
+        </Container>
       </Navbar>
     </>
   );
