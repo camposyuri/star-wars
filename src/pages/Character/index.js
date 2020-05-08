@@ -2,24 +2,36 @@ import React, { useState, useEffect } from "react";
 import TableDark from "../../components/TableDark";
 import TableHeader from "../../components/TableDark/TableHeader/";
 import TableBody from "../../components/TableDark/TableBody/";
-import { Container } from "reactstrap";
+import { Container, Spinner, Row } from "reactstrap";
 import api from "../../services";
 
 const Character = () => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleChange = e => {
     setSearchTerm(e.target.value);
-    console.log(e.target.value);
   };
 
   useEffect(() => {
-    api.get(`/api/people/?search=${searchTerm}`).then(res => {
-      setData(res.data.results);
-    });
+    setTimeout(() => {
+      api.get(`/api/people/?search=${searchTerm}`).then(res => {
+        setData(res.data.results);
+      });
+      setIsLoaded(true);
+    }, 1000);
   }, [searchTerm]);
 
+  if (!isLoaded) {
+    return (
+      <Container className="my-5">
+        <Row className="align-items-center justify-content-center">
+          <Spinner style={{ width: "3rem", height: "3rem" }} />
+        </Row>
+      </Container>
+    );
+  }
   return (
     <>
       <Container fluid>

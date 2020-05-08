@@ -1,10 +1,11 @@
 import React from "react";
+import { Container } from "reactstrap";
 
 const Home = () => {
   return (
-    <div className="container">
+    <Container fluid>
       <h1>Home</h1>
-    </div>
+    </Container>
   );
 };
 

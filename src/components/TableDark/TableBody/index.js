@@ -15,8 +15,8 @@ const TableBody = props => {
     <>
       <tbody>
         <tr>
-          {properties.map(prop => (
-            <td key={prop}>{prop}</td>
+          {properties.map((prop, index) => (
+            <td key={index}>{prop}</td>
           ))}
         </tr>
       </tbody>

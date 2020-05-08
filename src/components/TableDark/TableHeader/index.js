@@ -15,8 +15,8 @@ const TableHeader = props => {
     <>
       <thead>
         <tr>
-          {properties.map(prop => (
-            <th key={prop}>{prop}</th>
+          {properties.map((prop, index) => (
+            <th key={index}>{prop}</th>
           ))}
         </tr>
       </thead>
