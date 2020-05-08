@@ -4,7 +4,7 @@ import { Table } from "reactstrap";
 const TableDark = ({ children }) => {
   return (
     <>
-      <Table responsive dark hover size="sm">
+      <Table responsive hover size="sm">
         {children}
       </Table>
     </>

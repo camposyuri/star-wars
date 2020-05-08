@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import TableDark from "../../components/TableDark";
 import TableHeader from "../../components/TableDark/TableHeader/";
 import TableBody from "../../components/TableDark/TableBody/";
-import { Container, Spinner, Row } from "reactstrap";
+import {
+  Container,
+  Spinner,
+  Row,
+  Col,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Input
+} from "reactstrap";
 import api from "../../services";
+import { MdSearch } from "react-icons/md";
 
 const Character = () => {
   const [data, setData] = useState([]);
@@ -35,14 +45,26 @@ const Character = () => {
   return (
     <>
       <Container fluid>
-        <h1>Character</h1>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleChange}
-          placeholder="Search by name"
-          className="my-2"
-        />
+        <Row className="py-3 align-items-center">
+          <Col md="3">
+            <h1>Characters</h1>
+          </Col>
+          <Col md="6">
+            <InputGroup>
+              <Input
+                type="text"
+                value={searchTerm}
+                onChange={handleChange}
+                placeholder="Search by name"
+              />
+              <InputGroupAddon addonType="append">
+                <InputGroupText>
+                  <MdSearch />
+                </InputGroupText>
+              </InputGroupAddon>
+            </InputGroup>
+          </Col>
+        </Row>
       </Container>
       <TableDark>
         <TableHeader
